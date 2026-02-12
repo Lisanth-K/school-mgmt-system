@@ -98,3 +98,13 @@
   font-size: 13px;
   font-weight: 600;
 }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.checkbox { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.checkbox input { width: auto; }
+
+.badge { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+.badge.active { background: #e8fff3; color: #50cd89; }
+.badge.archived { background: #f5f8fa; color: #7e8299; }
+
+.activate-btn { padding: 5px 10px; background: #7239ea; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; }
+.active-row { background-color: #f9f9ff; }

@@ -2,9 +2,17 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:5000/api';
 
-// Auth
-export const loginAdmin = (credentials) => axios.post(`${API_URL}/auth/login`, credentials);
+// Common Axios Instance
+const API = axios.create({ baseURL: API_URL });
 
-// Academic Year - Ippo idhu dhaan namakku thevai
-export const getAcademicYears = () => axios.get(`${API_URL}/academic-years`);
-export const createAcademicYear = (data) => axios.post(`${API_URL}/academic-years`, data);
+// --- Authentication ---
+export const loginAdmin = (credentials) => API.post('/auth/login', credentials);
+
+// --- Academic Year ---
+export const getAcademicYears = () => API.get('/academic-years');
+export const createAcademicYear = (data) => API.post('/academic-years', data);
+export const toggleYearStatus = (id) => API.put(`/academic-years/status/${id}`);
+
+// --- Class Management ---
+export const getClasses = () => API.get('/classes');
+export const createClass = (data) => API.post('/classes', data);

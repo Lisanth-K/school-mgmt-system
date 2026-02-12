@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAcademicYears, createAcademicYear } from '../services/api'; 
-import { Calendar, PlusCircle, List } from 'lucide-react';
+import { getAcademicYears, createAcademicYear, toggleYearStatus } from '../services/api'; 
+import { Calendar, PlusCircle, List, CheckCircle, Archive } from 'lucide-react';
 import '../styles/AcademicYear.css';
 
 const AcademicYear = () => {
@@ -13,9 +13,7 @@ const AcademicYear = () => {
         try {
             const res = await getAcademicYears();
             setYears(res.data);
-        } catch (err) {
-            console.error("Fetch error", err);
-        }
+        } catch (err) { console.error(err); }
     };
 
     useEffect(() => { fetchYears(); }, []);
@@ -24,74 +22,71 @@ const AcademicYear = () => {
         e.preventDefault();
         try {
             await createAcademicYear(formData);
-            alert("Academic Year Created!");
-            setFormData({ year_name: '', start_date: '', end_date: '', is_active: false }); // Reset form
+            alert("Success!");
+            setFormData({ year_name: '', start_date: '', end_date: '', is_active: false });
             fetchYears();
-        } catch (err) { 
-            alert("Error: " + (err.response?.data?.error || "Something went wrong")); 
+        } catch (err) { alert(err.response?.data?.error); }
+    };
+
+    const handleToggle = async (id) => {
+        if(window.confirm("Make this the active year? This will archive others.")) {
+            await toggleYearStatus(id);
+            fetchYears();
         }
     };
 
     return (
-        <div className="academic-container"> {/* Corrected class name */}
+        <div className="academic-container">
             <h1><Calendar size={28} color="#009ef7" /> Academic Year Management</h1>
 
             <div className="form-card">
-                <h3><PlusCircle size={20} /> Add New Academic Year</h3>
-                <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
+                <h3><PlusCircle size={20} /> New Setup</h3>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>Year Name (e.g., 2025-2026)</label>
-                        <input 
-                            type="text" 
-                            placeholder="Enter academic year"
-                            value={formData.year_name}
-                            onChange={(e) => setFormData({...formData, year_name: e.target.value})}
-                            required 
-                        />
+                        <label>Year Name</label>
+                        <input type="text" placeholder="2025-2026" value={formData.year_name} onChange={(e) => setFormData({...formData, year_name: e.target.value})} required />
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div className="grid-2">
                         <div className="form-group">
                             <label>Start Date</label>
-                            <input 
-                                type="date" 
-                                value={formData.start_date}
-                                onChange={(e) => setFormData({...formData, start_date: e.target.value})}
-                                required 
-                            />
+                            <input type="date" value={formData.start_date} onChange={(e) => setFormData({...formData, start_date: e.target.value})} required />
                         </div>
                         <div className="form-group">
                             <label>End Date</label>
-                            <input 
-                                type="date" 
-                                value={formData.end_date}
-                                onChange={(e) => setFormData({...formData, end_date: e.target.value})}
-                                required 
-                            />
+                            <input type="date" value={formData.end_date} onChange={(e) => setFormData({...formData, end_date: e.target.value})} required />
                         </div>
                     </div>
-                    <button type="submit" className="submit-btn">Save Academic Year</button>
+                    <div className="form-group checkbox">
+                        <input type="checkbox" checked={formData.is_active} onChange={(e) => setFormData({...formData, is_active: e.target.checked})} />
+                        <label>Set as Active Year</label>
+                    </div>
+                    <button type="submit" className="submit-btn">Register Year</button>
                 </form>
             </div>
 
             <div className="table-container">
-                <h3><List size={20} /> Academic Year List</h3>
-                <table className="year-list" style={{ marginTop: '20px' }}>
+                <table className="year-list">
                     <thead>
                         <tr>
-                            <th>Year Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
+                            <th>Academic Year</th>
+                            <th>Duration</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {years.map((year) => (
-                            <tr key={year.id}>
+                            <tr key={year.id} className={year.is_active ? 'active-row' : ''}>
                                 <td><strong>{year.year_name}</strong></td>
-                                <td>{new Date(year.start_date).toLocaleDateString()}</td>
-                                <td>{new Date(year.end_date).toLocaleDateString()}</td>
+                                <td>{year.start_date} to {year.end_date}</td>
                                 <td>
-                                    <span className="active-badge">Active</span>
+                                    {year.is_active ? 
+                                        <span className="badge active"><CheckCircle size={12}/> Active</span> : 
+                                        <span className="badge archived"><Archive size={12}/> Archived</span>
+                                    }
+                                </td>
+                                <td>
+                                    {!year.is_active && <button onClick={() => handleToggle(year.id)} className="activate-btn">Activate</button>}
                                 </td>
                             </tr>
                         ))}

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import AcademicYear from './pages/AcademicYear';
+import ClassManagement from './pages/ClassManagement';
 import Login from './pages/Login'; // Pudhu Login page
 import './App.css';
 
@@ -25,7 +26,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<AcademicYear />} />
                     {/* Module 2: Class Management Route-ah inge add pannalam */}
-                    <Route path="/classes" element={<div className="content"><h2>Class Management Module</h2></div>} />
+                    <Route path="/classes" element={<ClassManagement />} />
                     
                     {/* Mattha routes-ku placeholder */}
                     <Route path="/sections" element={<div>Section Management</div>} />
