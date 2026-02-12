@@ -1,49 +1,82 @@
-.sidebar {
-  width: 260px;
-  background-color: #1e1e2d; /* Professional Deep Navy/Dark */
-  color: #a2a3b7;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 10px 15px 20px 15px;
+    border-radius: 10px;
+    gap: 12px;
 }
 
-.sidebar-logo {
-  padding: 30px 25px;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-bottom: 1px solid #2b2b40;
-  letter-spacing: 1px;
+.profile-icon {
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-name {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.admin-role {
+    color: #a2a3b7;
+    font-size: 11px;
+}
+
+.logout-btn {
+    margin-top: auto; /* Push to bottom */
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    color: #f64e60 !important; /* Red color for logout */
+}
+
+.logout-btn:hover {
+    background: rgba(246, 78, 96, 0.1) !important;
+}
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #1e1e2d;
+    display: flex;
+    flex-direction: column; /* Vertical column structure */
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px 0;
+    color: white;
 }
 
 .sidebar-nav {
-  padding: 20px 0;
-  flex: 1;
+    display: flex;
+    flex-direction: column; /* Menu items vertical-ah vara */
+    gap: 5px;
+    margin-top: 20px;
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 14px 25px;
-  text-decoration: none;
-  color: #a2a3b7;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.nav-item:hover {
-  background-color: #2b2b40;
-  color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    text-decoration: none;
+    color: #a2a3b7;
+    transition: 0.3s;
 }
 
 .nav-item.active {
-  background-color: #2b2b40;
-  color: #ffffff;
-  border-right: 4px solid #7239ea; /* Purple strip like Linways */
+    background-color: rgba(114, 57, 234, 0.1);
+    color: #7239ea;
+    border-right: 3px solid #7239ea;
 }

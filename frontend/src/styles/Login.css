@@ -1,0 +1,81 @@
+.login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e2d; /* Sidebar Dark Theme */
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 380px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.login-header h2 {
+    color: #1e1e2d;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #a2a3b7;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.login-btn {
+    background-color: #7239ea; /* Purple theme */
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #5a2bcc;
+}
+/* Intha section-ah add pannunga */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Labels-ah left align panna */
+}
+
+.form-group label {
+    display: block;
+    color: #1e1e2d;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background-color: #ffffff; /* Background confirm-ah white */
+    color: #1e1e2d;           /* Typed text color dark purple/black */
+    font-size: 14px;
+    box-sizing: border-box;   /* Padding-ala width maarama irukka */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #7239ea;    /* Focus panna purple border */
+    background-color: #fff;
+    color: #1e1e2d;           /* Focus-la irukkum pothum text theriyanum */
+}
+
+/* Placeholder light color-la irukka */
+.form-group input::placeholder {
+    color: #a2a3b7;
+}
