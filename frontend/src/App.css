@@ -1,0 +1,33 @@
+/* Remove default Vite padding/centering */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left; /* Default-ah Vite center panni irukkum, adhai left-ku mathurom */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden; /* Prevent global scroll */
+}
+
+/* Professional Full Screen Layout */
+.main-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f8fa; /* Linways Light Background */
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 260px; /* Exact width of Sidebar */
+  height: 100vh;
+  overflow-y: auto; /* Content area mattum scroll aagum */
+  padding: 40px;
+  box-sizing: border-box;
+}
