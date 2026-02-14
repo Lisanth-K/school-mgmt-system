@@ -1,0 +1,50 @@
+.subject-container { padding: 30px; }
+.subject-header { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; color: #181c32; }
+
+.subject-form-card {
+    background: white; border-radius: 12px; padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px;
+}
+
+.subject-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px; }
+.subject-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.subject-group label { font-weight: 600; color: #3f4254; font-size: 14px; }
+
+.subject-form input, .subject-form select {
+    padding: 12px; border: 1px solid #e1e3ea; border-radius: 8px; 
+    font-size: 14px; outline: none; transition: 0.3s;
+    color: #181c32; /* Input text color black */
+}
+
+.subject-form input:focus { border-color: #009ef7; }
+
+.subject-submit-btn {
+    background: #009ef7; color: white; border: none; padding: 12px 25px;
+    border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; width: 100%; margin-top: 10px;
+}
+
+.subject-submit-btn:hover { background: #0086d1; }
+
+/* Table Styles - Visibility Fixes */
+.subject-table-section { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.subject-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.subject-table th { text-align: left; padding: 12px; background: #f9f9f9; color: #181c32; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+
+/* Inga dhaan fix pannirukaen */
+.subject-table td { 
+    padding: 15px; 
+    border-bottom: 1px solid #f1f1f4; 
+    color: #181c32 !important; /* Force black text */
+    font-weight: 500;
+}
+
+.subj-info { display: flex; flex-direction: column; }
+.subj-name { font-weight: 700; color: #181c32; font-size: 15px; }
+.subj-code { font-size: 12px; color: #5e6278; font-weight: 600; }
+
+.type-badge {
+    padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700;
+}
+.type-badge.theory { background: #e1f0ff; color: #009ef7; }
+.type-badge.practical { background: #fff5f8; color: #f1416c; }
+.type-badge.both { background: #e8fff3; color: #50cd89; }

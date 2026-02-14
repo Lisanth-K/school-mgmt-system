@@ -19,6 +19,7 @@ const Sidebar = () => {
     { name: 'Class Management', path: '/classes', icon: <Layers size={20} /> },
     { name: 'Sections', path: '/sections', icon: <Users size={20} /> },
     { name: 'Subjects', path: '/subjects', icon: <BookOpen size={20} /> },
+    { name: 'Teachers', path: '/teacher-list', icon: <User size={20} /> },
     { name: 'Teacher Assignment', path: '/teachers', icon: <GraduationCap size={20} /> },
     { name: 'Syllabus', path: '/syllabus', icon: <Book size={20} /> },
     { name: 'Terms', path: '/terms', icon: <ClipboardList size={20} /> },

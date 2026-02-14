@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getClasses, createClass, getAcademicYears } from '../services/api';
+// Module-wise services-ah import pannunga
+import { getClasses, createClass } from '../services/classService';
+import { getAcademicYears } from '../services/academicYearService';
 import { BookOpen, PlusCircle, LayoutGrid } from 'lucide-react';
 import '../styles/ClassManagement.css'; 
 
@@ -12,20 +14,18 @@ const ClassManagement = () => {
 
     const fetchData = async () => {
         try {
+            // Direct Supabase calls via services
             const classRes = await getClasses();
             const yearRes = await getAcademicYears();
             
             setClasses(classRes.data || []);
             
-            // Console-la data varudha nu check panna:
-            console.log("Years from DB:", yearRes.data);
-            
-            // is_active boolean (true/false) ah check pannuvom
+            // is_active true-ah irukura years-ah mattum filter pannuvom
             const activeYears = yearRes.data.filter(y => y.is_active === true);
             setYears(activeYears); 
 
         } catch (err) { 
-            console.error("Fetch Error:", err); 
+            console.error("Fetch Error:", err.message); 
         }
     };
 
@@ -39,7 +39,7 @@ const ClassManagement = () => {
             setFormData({ class_name: '', edu_level: 'Primary', academic_year_id: '', room_number: '' });
             fetchData();
         } catch (err) { 
-            alert("Error: " + (err.response?.data?.error || "Something went wrong")); 
+            alert("Error: " + err.message); 
         }
     };
 

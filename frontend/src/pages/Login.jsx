@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginAdmin } from '../services/api';
+import { loginAdmin } from '../services/authService'; // Pudhu service
 import '../styles/Login.css';
 
 const Login = () => {
@@ -11,15 +11,20 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await loginAdmin({ email, password });
+            // Direct Supabase Call
+            const data = await loginAdmin(email, password);
             
-            // Login details-ah local storage-la store pannuvom
-            localStorage.setItem('token', res.data.session.access_token);
-            localStorage.setItem('isAuthenticated', 'true');
-            
-            navigate('/'); // Dashboard-ku redirect pannum
+            if (data.session) {
+                // Auth details store pannuvom
+                localStorage.setItem('token', data.session.access_token);
+                localStorage.setItem('isAuthenticated', 'true');
+                
+                alert("Welcome Back!");
+                // App.jsx refresh aaga window.location use pannalam or navigate
+                window.location.href = '/'; 
+            }
         } catch (err) {
-            alert("Login Failed: " + (err.response?.data?.error || "Invalid Credentials"));
+            alert("Login Failed: " + (err.message || "Invalid Credentials"));
         }
     };
 
