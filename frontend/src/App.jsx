@@ -6,6 +6,9 @@ import SectionManagement from './pages/SectionManagement';
 import SubjectManagement from './pages/SubjectManagement';
 import TeacherManagement from './pages/TeacherManagement'; 
 import TeacherAssignment from './pages/TeacherAssignment'; 
+import SyllabusManagement from './pages/SyllabusManagement';
+import TermManagement from './pages/TermManagement';
+import ExamManagement from './pages/ExamManagement'; // ✅ 1. Import Exam Management
 import Login from './pages/Login';
 import './App.css';
 
@@ -40,18 +43,20 @@ function App() {
                     {/* Module 4: Subjects */}
                     <Route path="/subjects" element={<SubjectManagement />} />
                     
-                    {/* Module 5: Teachers (Registration & List) */}
-                    {/* Sidebar-la "Teachers" click panna intha route trigger aagum */}
+                    {/* Module 5: Teachers */}
                     <Route path="/teacher-list" element={<TeacherManagement />} />
 
-                    {/* Module 6: Teacher Assignment (Subject Linking) */}
-                    {/* Sidebar-la "Teacher Assignment" click panna intha route trigger aagum */}
+                    {/* Module 6: Teacher Assignment */}
                     <Route path="/teachers" element={<TeacherAssignment />} />
                     
-                    {/* Future Modules */}
-                    <Route path="/syllabus" element={<div style={{padding: '20px'}}>Syllabus Coming Soon...</div>} />
-                    <Route path="/terms" element={<div style={{padding: '20px'}}>Terms Coming Soon...</div>} />
-                    <Route path="/exams" element={<div style={{padding: '20px'}}>Exams Coming Soon...</div>} />
+                    {/* Module 7: Syllabus Management */}
+                    <Route path="/syllabus" element={<SyllabusManagement />} />
+
+                    {/* Module 8: Term Management */}
+                    <Route path="/terms" element={<TermManagement />} />
+
+                    {/* Module 9: Exam Management ✅ */}
+                    <Route path="/exams" element={<ExamManagement />} />
                     
                     {/* Catch all - Redirect to Home */}
                     <Route path="*" element={<Navigate to="/" replace />} />
