@@ -1,16 +1,42 @@
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #1d395e;
+    /* Deep navy theme from the image */
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.sidebar-logo {
+    padding: 25px 25px 10px 25px;
+}
+
+.sidebar-logo h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* --- Admin Profile Section --- */
 .sidebar-profile {
     display: flex;
     align-items: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    margin: 10px 15px 20px 15px;
-    border-radius: 10px;
+    padding: 10px 25px 20px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* Faint line from image */
     gap: 12px;
 }
 
 .profile-icon {
+    width: 36px;
+    height: 36px;
     background: #ffffff;
-    padding: 8px;
+    /* Solid white circle from image */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -23,60 +49,48 @@
 }
 
 .admin-name {
-    color: white;
+    color: #ffffff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .admin-role {
-    color: #a2a3b7;
+    color: #94a3b8;
+    /* Muted grey from image */
     font-size: 11px;
 }
 
-.logout-btn {
-    margin-top: auto; /* Push to bottom */
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    color: #f64e60 !important; /* Red color for logout */
-}
-
-.logout-btn:hover {
-    background: rgba(246, 78, 96, 0.1) !important;
-}
-.sidebar {
-    width: 260px;
-    height: 100vh;
-    background-color: #1e1e2d;
-    display: flex;
-    flex-direction: column; /* Vertical column structure */
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 20px 0;
-    color: white;
-}
-
+/* --- Navigation --- */
 .sidebar-nav {
     display: flex;
-    flex-direction: column; /* Menu items vertical-ah vara */
-    gap: 5px;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 15px 12px;
+    /* Padding creates space so highlight doesn't touch edges */
 }
 
 .nav-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 25px;
+    padding: 10px 14px;
     text-decoration: none;
-    color: #a2a3b7;
-    transition: 0.3s;
+    color: #cbd5e1;
+    /* Inactive text color */
+    border-radius: 8px;
+    /* Rounded corners for active state */
+    transition: all 0.2s ease;
+    font-size: 13px;
 }
 
+.nav-item:hover {
+    background-color: #4b5f7c;
+    color: #ffffff;
+}
+
+/* The exact active state from the photo (rounded highlight, no left border) */
 .nav-item.active {
-    background-color: rgba(114, 57, 234, 0.1);
-    color: #7239ea;
-    border-right: 3px solid #7239ea;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 500;
 }

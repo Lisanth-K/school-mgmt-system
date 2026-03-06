@@ -1,110 +1,220 @@
-.academic-container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+/* Page Layout */
+.page-container {
+  padding: 30px 40px;
+  background-color: #f4f7f9;
+  /* The exact light grey background from the image */
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
 
-.academic-container h1 {
-  font-size: 26px;
-  color: #181c32;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.form-card {
-  background: #ffffff;
-  padding: 35px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  border: 1px solid #eff2f5;
-  margin-bottom: 40px;
-}
-
-.form-group {
+.page-header {
   margin-bottom: 25px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: #3f4254;
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #181c32;
+  /* Deep dark grey/black for main headers */
+  margin: 0;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #e1e3ea;
+/* Card Styling (Matches the "Professional Information" block) */
+.theme-card {
+  background: #ffffff;
   border-radius: 8px;
-  background-color: #f5f8fa; /* Slightly grey inputs */
-  font-size: 14px;
+  border: 1px solid #eff2f5;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+  /* Extremely subtle shadow */
 }
 
-.form-group input:focus {
-  outline: none;
-  border-color: #009ef7;
-  background-color: #ffffff;
+.card-header {
+  padding: 20px 25px;
+  border-bottom: 1px solid #eff2f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.submit-btn {
-  background-color: #009ef7; /* Blue Action Button */
-  color: white;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
+.card-title {
   font-size: 16px;
+  font-weight: 600;
+  color: #181c32;
+  margin: 0 0 5px 0;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: #a1a5b7;
+  /* Muted subtitle grey */
+  margin: 0;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+/* Form Styling */
+.theme-form {
+  max-width: 800px;
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.theme-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5e6278;
+  margin-bottom: 8px;
+}
+
+.theme-form input[type="text"],
+.theme-form input[type="date"] {
   width: 100%;
-  transition: 0.2s ease;
+  padding: 10px 14px;
+  border: 1px solid #e4e6ef;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #181c32;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 
-.submit-btn:hover {
-  background-color: #0086d1;
+.theme-form input[type="text"]:focus,
+.theme-form input[type="date"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  /* Blue focus ring matching active sidebar */
 }
 
-/* Table Style like AMS */
-.year-list {
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.checkbox-row label {
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.form-actions {
+  border-top: 1px solid #eff2f5;
+  padding-top: 20px;
+}
+
+.theme-btn-primary {
+  background-color: #002e5b;
+  /* Using the dark blue from the "Apply Now" button in the image */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.theme-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.theme-btn-outline {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.theme-btn-outline:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Table Styling */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.theme-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,0,0,0.03);
 }
 
-.year-list th {
-  background-color: #f9fafb;
-  color: #7e8299;
+.theme-table th {
+  background-color: #f9fbfd;
+  /* Very faint header bg */
+  color: #a1a5b7;
+  font-size: 12px;
   font-weight: 600;
-  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 15px 25px;
   text-align: left;
   border-bottom: 1px solid #eff2f5;
 }
 
-.year-list td {
-  padding: 15px;
+.theme-table td {
+  padding: 16px 25px;
+  font-size: 14px;
+  color: #5e6278;
   border-bottom: 1px solid #eff2f5;
-  color: #3f4254;
+  vertical-align: middle;
 }
 
-.active-badge {
-  background: #e8fff3;
-  color: #50cd89;
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 13px;
+.theme-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fw-600 {
   font-weight: 600;
 }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.checkbox { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-.checkbox input { width: auto; }
 
-.badge { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
-.badge.active { background: #e8fff3; color: #50cd89; }
-.badge.archived { background: #f5f8fa; color: #7e8299; }
+.text-dark {
+  color: #181c32;
+}
 
-.activate-btn { padding: 5px 10px; background: #7239ea; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; }
-.active-row { background-color: #f9f9ff; }
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-active {
+  background-color: #e8fff3;
+  color: #50cd89;
+}
+
+.badge-archived {
+  background-color: #f5f8fa;
+  color: #7e8299;
+}

@@ -1,37 +1,226 @@
-.exam-container { padding: 2rem; background: #fffcf9; min-height: 100vh; }
-.exam-header { display: flex; align-items: center; gap: 15px; margin-bottom: 2rem; }
-.exam-grid { display: grid; grid-template-columns: 380px 1fr; gap: 2rem; }
-
-.exam-form-card { 
-    background: white; padding: 25px; border-radius: 15px; 
-    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.1); border: 1px solid #fbd38d;
+/* Page & Base Theme Variables (Consistent across app) */
+.page-container {
+    padding: 30px 40px;
+    background-color: #f4f7f9;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 }
 
-.e-group { margin-bottom: 15px; }
-.e-group label { display: block; font-weight: 700; color: #4a5568; margin-bottom: 5px; font-size: 13px; }
-.e-group input, .e-group select { 
-    width: 100%; padding: 10px; border: 2px solid #edf2f7; border-radius: 8px; outline: none;
+.page-header {
+    margin-bottom: 25px;
 }
 
-.e-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-.exam-btn { 
-    width: 100%; padding: 12px; background: #e67e22; color: white; 
-    border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #181c32;
+    margin: 0;
 }
 
-.exam-item {
-    background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-left: 6px solid #e67e22; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+/* Custom Grid for Exam Page: Form left, List right */
+.exam-dashboard-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    /* Fixed width for form, flexible for list */
+    gap: 30px;
+    align-items: start;
 }
 
-.ex-badge-row { display: flex; gap: 8px; margin-bottom: 8px; }
-.ebadge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; }
-.ebadge.type { background: #fff3e0; color: #e67e22; }
-.ebadge.term { background: #e3f2fd; color: #1976d2; }
+@media (max-width: 960px) {
+    .exam-dashboard-grid {
+        grid-template-columns: 1fr;
+        /* Stacks on smaller screens */
+    }
+}
 
-.ex-info h4 { margin: 0; color: #2d3748; font-size: 18px; }
-.ex-info p { margin: 5px 0 0; color: #718096; display: flex; align-items: center; gap: 5px; }
+/* Card Styling */
+.theme-card {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eff2f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+}
 
-.ex-del { background: #fff5f5; color: #e53e3e; border: none; padding: 10px; border-radius: 8px; cursor: pointer; }
+.card-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #eff2f5;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #181c32;
+    margin: 0;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* Form Styling */
+.theme-form {
+    width: 100%;
+}
+
+.form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.theme-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3f4254;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+.theme-form input,
+.theme-form select {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #ffffff;
+    border: 1px solid #dbdfe9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5675;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    appearance: auto;
+}
+
+/* Focus glow using the NEW BLUE #1d395e */
+.theme-form input:focus,
+.theme-form select:focus {
+    outline: none;
+    border-color: #1d395e;
+    box-shadow: 0 0 0 4px rgba(29, 57, 94, 0.1);
+}
+
+/* Form Actions */
+.form-actions {
+    border-top: 1px solid #eff2f5;
+    padding-top: 24px;
+}
+
+/* Primary Button using NEW BLUE */
+.theme-btn-primary {
+    background-color: #1d395e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.theme-btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* =========================================
+   Exam List Cards Styling (Right Column)
+   ========================================= */
+.exam-list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.exam-card-item {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eff2f5;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exam-card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.exam-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.exam-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.exam-class-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #181c32;
+}
+
+.exam-details {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #7e8299;
+}
+
+/* Delete Button */
+.btn-delete {
+    background: transparent;
+    color: #a1a5b7;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete:hover {
+    background: #fff5f8;
+    color: #f1416c;
+    /* Soft red for destructive action */
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.badge-primary {
+    background-color: rgba(29, 57, 94, 0.1);
+    color: #1d395e;
+    /* NEW BLUE text */
+}
+
+.badge-light {
+    background-color: #f5f8fa;
+    color: #7e8299;
+}

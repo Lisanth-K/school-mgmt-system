@@ -1,187 +1,274 @@
-.syllabus-container {
-    padding: 2rem;
-    background-color: #f4f7f6;
+/* Base Page & Theme Variables */
+.page-container {
+    padding: 30px 40px;
+    background-color: #f4f7f9;
     min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 }
 
-.syllabus-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 1rem;
+.page-header {
+    margin-bottom: 25px;
 }
 
-.syllabus-header h1 {
-    color: #2c3e50;
-    font-size: 28px;
-    font-weight: 800;
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #181c32;
     margin: 0;
 }
 
+/* 2-Column Grid Layout */
 .syllabus-main-grid {
     display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 2rem;
+    grid-template-columns: 320px 1fr;
+    gap: 25px;
+    align-items: start;
 }
 
-.form-card {
+@media (max-width: 900px) {
+    .syllabus-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card Styling */
+.theme-card {
     background: #ffffff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    height: fit-content;
-    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    border: 1px solid #eff2f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
 }
 
-.form-card h3 {
-    margin-bottom: 1.5rem;
-    color: #1a1a1a;
-    font-size: 20px;
+.card-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #eff2f5;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
 }
 
-.form-group {
-    margin-bottom: 1.2rem;
-}
-
-.form-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #dcdde1;
-    border-radius: 8px;
-    font-size: 14px;
-    background: #fff;
-    color: #000;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 14px;
-    background: #2c3e50;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
+.card-title {
     font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    color: #181c32;
+    margin: 0 0 5px 0;
 }
 
-.submit-btn:hover { background: #34495e; }
+.card-subtitle {
+    font-size: 13px;
+    color: #a1a5b7;
+    margin: 0;
+}
 
-.list-header-card {
-    background: #ffffff;
-    padding: 1.2rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border: 1px solid #dcdde1;
+.card-body {
+    padding: 25px;
+}
+
+/* Form Styling */
+.theme-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3f4254;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+.theme-form input,
+.theme-form select,
+.theme-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border: 1px solid #dbdfe9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5675;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    appearance: auto;
+    resize: vertical;
+}
+
+/* Focus glow using specific dark blue #1d395e */
+.theme-form input:focus,
+.theme-form select:focus,
+.theme-form textarea:focus {
+    outline: none;
+    border-color: #1d395e;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(29, 57, 94, 0.1);
+}
+
+.form-actions {
+    border-top: 1px solid #eff2f5;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Primary Button using NEW BLUE */
+.theme-btn-primary {
+    background-color: #1d395e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.theme-btn-primary:hover {
+    background-color: #152a46;
+}
+
+/* List & Filter Styling */
+.filter-header {
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .filter-wrapper {
     display: flex;
     align-items: center;
-    gap: 12px;
-    color: #2c3e50;
-    font-weight: 700;
+    gap: 8px;
+    background-color: #f9fbfd;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #eff2f5;
 }
 
-.filter-wrapper select {
-    padding: 8px 15px;
-    border-radius: 6px;
-    border: 1px solid #2c3e50;
-    background: white;
-    font-weight: 600;
+.filter-select {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4b5675;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Chapter Items */
+.chapters-container {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .chapter-item {
-    background: #ffffff !important;
-    padding: 1.5rem;
-    border-radius: 12px;
+    border: 1px solid #eff2f5;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.chapter-item:hover {
+    border-color: #dbdfe9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.chapter-header-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border-left: 8px solid #3498db;
-    border: 1px solid #dcdde1;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    margin-bottom: 15px;
 }
 
 .chapter-details h4 {
-    margin: 5px 0;
-    color: #1a1a1a !important;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.class-tag {
-    background: #e8f0fe;
-    color: #1967d2;
-    font-size: 12px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: 800;
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    color: #181c32;
 }
 
 .sub-text {
-    color: #555 !important;
-    font-size: 15px;
-    margin: 5px 0 0 0;
+    margin: 0;
+    font-size: 13px;
+    color: #a1a5b7;
 }
 
-.chapter-progress { width: 300px; }
+.sub-text strong {
+    color: #5e6278;
+    font-weight: 600;
+}
+
+.badge-class {
+    background-color: #f4f7f9;
+    color: #5e6278;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Progress Bar Section */
+.chapter-progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .progress-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: #2c3e50;
+}
+
+.progress-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3f4254;
 }
 
 .progress-track {
-    background: #ecf0f1;
-    height: 12px;
-    border-radius: 10px;
+    width: 100%;
+    height: 8px;
+    background-color: #eff2f5;
+    border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #bdc3c7;
 }
 
-.progress-fill { height: 100%; transition: width 0.5s ease-in-out; }
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
 
+/* Remarks Bubble */
 .remark-bubble {
-    font-style: italic;
+    margin-top: 5px;
+    background-color: #f9fbfd;
+    border-left: 3px solid #1d395e;
+    padding: 10px 14px;
     font-size: 13px;
-    color: #636e72;
-    margin-top: 10px;
-    background: #f9f9f9;
-    padding: 5px 10px;
-    border-radius: 5px;
+    color: #5e6278;
+    border-radius: 4px;
+}
+
+.remark-bubble strong {
+    color: #181c32;
 }
 
 .empty-state {
     text-align: center;
-    padding: 5rem;
-    color: #7f8c8d;
-    background: #fff;
-    border-radius: 15px;
-    border: 3px dashed #bdc3c7;
-    font-size: 18px;
-    font-weight: 600;
+    padding: 40px;
+    color: #a1a5b7;
+    font-size: 14px;
+    background-color: #f9fbfd;
+    border-radius: 8px;
+    border: 1px dashed #dbdfe9;
 }

@@ -1,146 +1,194 @@
-/* Class Management Specific Styles */
-.class-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    color: #181c32; /* Ensures text is dark by default */
+/* Page Layout */
+.page-container {
+    padding: 30px 40px;
+    background-color: #f4f7f9;
+    /* Light grey background */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 }
 
-.class-header {
-    font-size: 26px;
-    color: #181c32 !important;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.page-header {
+    margin-bottom: 25px;
 }
 
-.class-form-card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(114, 57, 234, 0.05);
-    border: 1px solid #f1f1f4;
-    margin-bottom: 35px;
-}
-
-.class-form-card h3 {
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
     color: #181c32;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+    /* Deep dark grey/black */
+    margin: 0;
 }
 
-.class-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.class-group {
-    margin-bottom: 20px;
-}
-
-.class-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #3f4254 !important; /* Dark Grey label */
-    font-size: 14px;
-}
-
-.class-input, 
-.class-select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #e1e3ea;
+/* Card Styling */
+.theme-card {
+    background: #ffffff;
     border-radius: 8px;
-    background-color: #f9f9fb;
+    border: 1px solid #eff2f5;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+}
+
+.card-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #eff2f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #181c32;
+    margin: 0 0 5px 0;
+}
+
+.card-subtitle {
+    font-size: 13px;
+    color: #a1a5b7;
+    margin: 0;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* Form Styling */
+.theme-form {
+    max-width: 900px;
+}
+
+.form-row {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.theme-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3f4254;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+/* Inputs & Selects styled identically */
+.theme-form input[type="text"],
+.theme-form select {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border: 1px solid #dbdfe9;
+    border-radius: 8px;
     font-size: 14px;
-    color: #181c32 !important; /* Force dark text in inputs */
-    transition: all 0.2s;
+    color: #4b5675;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    appearance: auto;
+    /* Keeps native select dropdown arrow looking normal */
 }
 
-.class-select {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237e8299' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    appearance: none;
+/* Focus glow */
+.theme-form input[type="text"]:focus,
+.theme-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
-.class-input::placeholder {
+/* Select placeholder state */
+.theme-form select:invalid {
     color: #a1a5b7;
 }
 
-.class-input:focus, 
-.class-select:focus {
-    outline: none;
-    border-color: #7239ea;
-    background-color: #ffffff;
+/* Buttons */
+.form-actions {
+    border-top: 1px solid #eff2f5;
+    padding-top: 24px;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.class-submit-btn {
-    background-color: #7239ea;
-    color: white !important; /* Force white text on button */
-    padding: 14px;
+.theme-btn-primary {
+    background-color: #002e5b;
+    /* Dark navy "Apply Now" style */
+    color: white;
     border: none;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    font-weight: 600;
-    width: 100%;
-    margin-top: 10px;
-    transition: 0.3s;
+    transition: opacity 0.2s;
 }
 
-.class-submit-btn:hover {
-    background-color: #5d29cf;
+.theme-btn-primary:hover {
+    opacity: 0.9;
 }
 
-/* Table Styles */
-.class-table-section {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #f1f1f4;
+/* Table Styling */
+.table-responsive {
+    overflow-x: auto;
 }
 
-.class-table {
+.theme-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.class-table th {
-    background-color: #f9fafb;
-    color: #7e8299 !important; /* Grey headers */
-    padding: 15px;
-    text-align: left;
-    font-size: 13px;
+.theme-table th {
+    background-color: #f9fbfd;
+    color: #a1a5b7;
+    font-size: 12px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-bottom: 1px solid #f1f1f4;
+    padding: 15px 25px;
+    text-align: left;
+    border-bottom: 1px solid #eff2f5;
 }
 
-.class-table td {
-    padding: 15px;
-    border-bottom: 1px solid #f1f1f4;
-    color: #3f4254 !important; /* Dark grey cell text */
+.theme-table td {
+    padding: 16px 25px;
+    font-size: 14px;
+    color: #5e6278;
+    border-bottom: 1px solid #eff2f5;
+    vertical-align: middle;
 }
 
-.class-table td strong {
-    color: #181c32;
+.theme-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.year-badge {
-    background: #f0eaff;
-    color: #7239ea !important;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
+.fw-600 {
     font-weight: 600;
 }
 
-@media (max-width: 768px) {
-    .class-grid { grid-template-columns: 1fr; }
+.text-dark {
+    color: #181c32;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-light {
+    background-color: #f5f8fa;
+    color: #7e8299;
+    border: 1px solid #e4e6ef;
 }
